@@ -129,8 +129,16 @@ function setLanguage(lang, { persist = true } = {}) {
   if (persist) storeLanguage(selectedLanguage);
 }
 
+function useNativeLanguageSelector(lang) {
+  // Se o tradutor do navegador estiver ativo, impede que ele retraduza
+  // o conteúdo logo após a troca feita pelo seletor nativo do site.
+  document.documentElement.classList.add('notranslate');
+  document.documentElement.setAttribute('translate', 'no');
+  setLanguage(lang);
+}
+
 document.querySelectorAll('.lang-btn').forEach(btn =>
-  btn.addEventListener('click', () => setLanguage(btn.dataset.lang))
+  btn.addEventListener('click', () => useNativeLanguageSelector(btn.dataset.lang))
 );
 
 // Primeira visita: espanhol. Visitas seguintes: último idioma escolhido.
