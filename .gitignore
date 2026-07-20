@@ -1,0 +1,7 @@
+/vendor/
+/.env
+/backend/rate-limit/
+/backend/data/*.sqlite
+/backend/data/*.sqlite-*
+/backend/data/*.mmdb
+/backend/data/login-rate/

@@ -1,0 +1,28 @@
+Options -Indexes
+
+# Cabeçalhos defensivos para páginas públicas e endpoints.
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; media-src 'self'; upgrade-insecure-requests"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set X-XSS-Protection "0"
+  Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
+</IfModule>
+
+# Impede o download de credenciais e de seus arquivos auxiliares no Apache/cPanel.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Arquivos de configuração, documentação e logs não devem ser servidos publicamente.
+<FilesMatch "(?:^composer\.(?:json|lock)$|\.(?:md|log|ini|bak|sql)$)">
+  Require all denied
+</FilesMatch>
+
+# Protege a base de estatísticas e a base local de geolocalização.
+<FilesMatch "\.(?:sqlite(?:-shm|-wal)?|mmdb)$">
+  Require all denied
+</FilesMatch>

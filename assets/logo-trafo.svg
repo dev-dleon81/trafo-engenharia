@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Trafo Engenharia">
+  <defs><clipPath id="logoCircle"><circle cx="100" cy="100" r="82"/></clipPath></defs>
+  <g clip-path="url(#logoCircle)">
+    <rect x="18" y="18" width="82" height="164" fill="#2fa9d6"/>
+    <rect x="100" y="18" width="82" height="164" fill="#df1f2d"/>
+    <path d="M86 8 45 112h52l-16 82 74-112h-53l18-74Z" fill="#fff"/>
+  </g>
+</svg>

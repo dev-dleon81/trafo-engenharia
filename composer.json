@@ -1,0 +1,12 @@
+{
+  "name": "trafo-engenharia/site",
+  "description": "Site institucional da Trafo Engenharia com formulário SMTP e painel privado de acessos.",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "phpmailer/phpmailer": "^6.10",
+    "geoip2/geoip2": "^3.3"
+  }
+}
